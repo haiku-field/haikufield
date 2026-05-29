@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HAIGA | Haiku Field</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    background:#ffffff;
+    color:#111;
+    font-family:'Lato',sans-serif;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:24px 16px 0 16px;
+}
+
+.logo{
+    font-size:13pt;
+    font-weight:300;
+    color:#666;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+    font-size:13pt;
+    font-weight:300;
+}
+
+nav a{
+    text-decoration:none;
+    color:#666;
+}
+
+main{
+    text-align:center;
+    margin-top:55px;
+}
+
+h1{
+    font-size:34pt;
+    font-weight:300;
+    letter-spacing:8px;
+    margin:0 0 70px 0;
+    color:#1d6f91;
+}
+
+.gallery{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:70px;
+    padding-bottom:100px;
+}
+
+.gallery img{
+    max-width:90vw;
+    max-height:90vh;
+    width:auto;
+    height:auto;
+    display:block;
+    cursor:pointer;
+}
+
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#ffffff;
+    z-index:999;
+    justify-content:center;
+    align-items:center;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:96vw;
+    max-height:96vh;
+    width:auto;
+    height:auto;
+}
+
+@media (max-width:900px){
+    header{
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:16px;
+        padding:0 15px;
+    }
+
+    h1{
+        font-size:30pt;
+        letter-spacing:6px;
+        margin-bottom:50px;
+    }
+
+    .gallery{
+        gap:50px;
+    }
+
+    .gallery img{
+        max-width:94vw;
+        max-height:88vh;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Haiku Field</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="haiga.html">HAIGA (Haiku Images)</a>
+<a href="touch.html">TOUCH (Sculptures)</a>
+<a href="echo.html">ECHO (Sculptures)</a>
+<a href="moment.html">MOMENT (Paintings)</a>
+<a href="once.html">ONCE (Paintings)</a>
+</nav>
+</header>
+
+<main>
+
+<h1>HAIGA</h1>
+
+<div class="gallery">
+
+<img src="haiga/haiga-001.jpg" alt="">
+<img src="haiga/haiga-002.jpg" alt="">
+<img src="haiga/haiga-003.jpg" alt="">
+
+</div>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+<img id="lightbox-img" src="">
+</div>
+
+<script>
+const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = img.src;
+    });
+});
+
+lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+});
+</script>
+
+</body>
+</html>
