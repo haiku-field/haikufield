@@ -6,157 +6,190 @@
 
 <title>Haiku Field</title>
 
-<style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 
+<style>
 body{
     margin:0;
-    background:#f5f5f5;
-    color:#222;
-    font-family:Arial, Helvetica, sans-serif;
+    background:#ffffff;
+    color:#000000;
+    font-family:'Lato', sans-serif;
+    font-size:13pt;
 }
 
 header{
+    max-width:1500px;
+    margin:0 auto;
+    padding:26px 18px 0 18px;
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
+    align-items:flex-start;
 }
 
 .logo{
-    font-size:18px;
-    color:#666;
+    font-size:13pt;
+    font-weight:300;
 }
 
 nav{
     display:flex;
-    gap:30px;
+    gap:34px;
+    font-size:13pt;
+    font-weight:300;
 }
 
 nav a{
+    color:#000000;
     text-decoration:none;
-    color:#555;
-    font-size:16px;
 }
 
-nav a:hover{
-    color:black;
-}
-
-.hero{
+main{
     text-align:center;
-    margin-top:70px;
+    padding-top:38px;
 }
 
-.hero h1{
-    font-size:72px;
-    font-weight:300;
-    margin-bottom:20px;
+h1{
+    font-size:34pt;
+    font-weight:400;
+    margin:0 0 12px 0;
 }
 
 .subtitle{
-    font-size:28px;
+    font-size:21pt;
+    font-weight:300;
     font-style:italic;
-    color:#444;
-    margin-bottom:20px;
+    margin-bottom:10px;
 }
 
 .tagline{
-    font-size:18px;
-    color:#555;
-    margin-bottom:80px;
+    font-size:13pt;
+    font-weight:300;
+    font-style:italic;
+    margin-bottom:48px;
 }
 
 .collection{
-    margin-bottom:40px;
+    margin-bottom:22px;
+    line-height:1.25;
+}
+
+.collection a{
+    color:#000000;
+    text-decoration:none;
 }
 
 .collection-title{
-    font-size:20px;
-    margin-bottom:5px;
+    font-size:13pt;
+    font-weight:400;
 }
 
 .collection-type{
-    color:#666;
+    font-size:13pt;
+    font-weight:300;
 }
 
 .contact{
-    margin-top:90px;
-    margin-bottom:80px;
-}
-
-.contact-title{
-    margin-bottom:15px;
+    margin-top:38px;
+    line-height:1.8;
 }
 
 .email{
-    color:#444;
+    color:#000000;
 }
 
+@media (max-width: 800px){
+    header{
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        padding-top:22px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:18px;
+    }
+
+    main{
+        padding-top:36px;
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    h1{
+        font-size:34pt;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-Haiku Field
-</div>
+<div class="logo">Haiku Field</div>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">HAIGA</a>
-<a href="#">TOUCH</a>
-<a href="#">ECHO</a>
-<a href="#">MOMENT</a>
-<a href="#">ONCE</a>
+<a href="index.html">Home</a>
+<a href="haiga.html">HAIGA</a>
+<a href="touch.html">TOUCH</a>
+<a href="echo.html">ECHO</a>
+<a href="moment.html">MOMENT</a>
+<a href="once.html">ONCE</a>
 </nav>
-
 </header>
 
-<div class="hero">
+<main>
 
 <h1>Haiku Field</h1>
 
-<div class="subtitle">
-Meditative Abstract Works
-</div>
+<div class="subtitle">Meditative Abstract Works</div>
 
-<div class="tagline">
-Where image, form and silence meet.
-</div>
+<div class="tagline">Where image, form and silence meet.</div>
 
 <div class="collection">
+<a href="haiga.html">
 <div class="collection-title">HAIGA</div>
 <div class="collection-type">Haiku Images</div>
+</a>
 </div>
 
 <div class="collection">
+<a href="touch.html">
 <div class="collection-title">TOUCH</div>
 <div class="collection-type">Sculptures</div>
+</a>
 </div>
 
 <div class="collection">
+<a href="echo.html">
 <div class="collection-title">ECHO</div>
 <div class="collection-type">Sculptures</div>
+</a>
 </div>
 
 <div class="collection">
+<a href="moment.html">
 <div class="collection-title">MOMENT</div>
 <div class="collection-type">Paintings</div>
+</a>
 </div>
 
 <div class="collection">
+<a href="once.html">
 <div class="collection-title">ONCE</div>
 <div class="collection-type">Paintings</div>
+</a>
 </div>
 
 <div class="contact">
-<div class="contact-title">Contact</div>
-<div class="email">haikufield@gmail.com</div>
+<div>Contact</div>
+<a class="email" href="mailto:haikufield@gmail.com">haikufield@gmail.com</a>
 </div>
 
-</div>
+</main>
 
 </body>
 </html>
