@@ -8,21 +8,22 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 
 <style>
+
 body{
     margin:0;
     background:#ffffff;
-    color:#000000;
+    color:#000;
     font-family:'Lato', sans-serif;
-    font-size:13pt;
 }
 
 header{
-    max-width:1500px;
+    max-width:1400px;
     margin:0 auto;
-    padding:26px 18px 0 18px;
+    padding:24px 16px 0 16px;
+
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
@@ -35,49 +36,56 @@ header{
 
 nav{
     display:flex;
-    gap:34px;
-    font-size:13pt;
-    font-weight:300;
+    gap:26px;
 }
 
 nav a{
-    color:#000000;
+    font-size:13pt;
+    font-weight:300;
+    color:#555;
     text-decoration:none;
+}
+
+nav a:hover{
+    color:#000;
 }
 
 main{
     text-align:center;
-    padding-top:38px;
+    margin-top:55px;
 }
 
 h1{
+    margin:0;
     font-size:34pt;
     font-weight:400;
-    margin:0 0 12px 0;
 }
 
 .subtitle{
+    margin-top:14px;
+    margin-bottom:12px;
+
     font-size:21pt;
-    font-weight:300;
     font-style:italic;
-    margin-bottom:10px;
+    font-weight:300;
 }
 
 .tagline{
+    margin-bottom:34px;
+
     font-size:13pt;
-    font-weight:300;
     font-style:italic;
-    margin-bottom:48px;
+    font-weight:300;
 }
 
 .collection{
-    margin-bottom:22px;
+    margin-bottom:19px;
     line-height:1.25;
 }
 
 .collection a{
-    color:#000000;
     text-decoration:none;
+    color:#000;
 }
 
 .collection-title{
@@ -91,30 +99,32 @@ h1{
 }
 
 .contact{
-    margin-top:38px;
+    margin-top:54px;
+    margin-bottom:80px;
+
     line-height:1.8;
+    font-size:13pt;
 }
 
 .email{
-    color:#000000;
+    color:#000;
 }
 
-@media (max-width: 800px){
+@media (max-width: 900px){
+
     header{
         flex-direction:column;
         align-items:center;
-        gap:18px;
-        padding-top:22px;
+        gap:20px;
     }
 
     nav{
         flex-wrap:wrap;
         justify-content:center;
-        gap:18px;
+        gap:16px;
     }
 
     main{
-        padding-top:36px;
         padding-left:20px;
         padding-right:20px;
     }
@@ -122,32 +132,42 @@ h1{
     h1{
         font-size:34pt;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">Haiku Field</div>
+
+<div class="logo">
+Haiku Field
+</div>
 
 <nav>
 <a href="index.html">Home</a>
-<a href="haiga.html">HAIGA</a>
-<a href="touch.html">TOUCH</a>
-<a href="echo.html">ECHO</a>
-<a href="moment.html">MOMENT</a>
-<a href="once.html">ONCE</a>
+<a href="haiga.html">HAIGA (Haiku Images)</a>
+<a href="touch.html">TOUCH (Sculptures)</a>
+<a href="echo.html">ECHO (Sculptures)</a>
+<a href="moment.html">MOMENT (Paintings)</a>
+<a href="once.html">ONCE (Paintings)</a>
 </nav>
+
 </header>
 
 <main>
 
 <h1>Haiku Field</h1>
 
-<div class="subtitle">Meditative Abstract Works</div>
+<div class="subtitle">
+Meditative Abstract Works
+</div>
 
-<div class="tagline">Where image, form and silence meet.</div>
+<div class="tagline">
+Where image, form and silence meet
+</div>
 
 <div class="collection">
 <a href="haiga.html">
@@ -186,7 +206,10 @@ h1{
 
 <div class="contact">
 <div>Contact</div>
-<a class="email" href="mailto:haikufield@gmail.com">haikufield@gmail.com</a>
+
+<a class="email" href="mailto:haikufield@gmail.com">
+haikufield@gmail.com
+</a>
 </div>
 
 </main>
