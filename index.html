@@ -11,19 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 
 <style>
-
 body{
     margin:0;
     background:#ffffff;
-    color:#000;
+    color:#111111;
     font-family:'Lato', sans-serif;
 }
 
 header{
-    max-width:1400px;
-    margin:0 auto;
     padding:24px 16px 0 16px;
-
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
@@ -32,60 +28,54 @@ header{
 .logo{
     font-size:13pt;
     font-weight:300;
+    color:#333333;
 }
 
 nav{
     display:flex;
-    gap:26px;
+    gap:30px;
+    font-size:13pt;
+    font-weight:300;
 }
 
 nav a{
-    font-size:13pt;
-    font-weight:300;
-    color:#555;
+    color:#555555;
     text-decoration:none;
-}
-
-nav a:hover{
-    color:#000;
 }
 
 main{
     text-align:center;
-    margin-top:55px;
+    margin-top:54px;
 }
 
 h1{
-    margin:0;
     font-size:34pt;
     font-weight:400;
+    margin:0 0 14px 0;
 }
 
 .subtitle{
-    margin-top:14px;
-    margin-bottom:12px;
-
     font-size:21pt;
-    font-style:italic;
     font-weight:300;
+    font-style:italic;
+    margin-bottom:12px;
 }
 
 .tagline{
-    margin-bottom:34px;
-
     font-size:13pt;
-    font-style:italic;
     font-weight:300;
+    font-style:italic;
+    margin-bottom:68px;
 }
 
 .collection{
-    margin-bottom:19px;
+    margin-bottom:23px;
     line-height:1.25;
 }
 
 .collection a{
+    color:#111111;
     text-decoration:none;
-    color:#000;
 }
 
 .collection-title{
@@ -99,52 +89,45 @@ h1{
 }
 
 .contact{
-    margin-top:54px;
+    margin-top:74px;
     margin-bottom:80px;
-
-    line-height:1.8;
     font-size:13pt;
+    font-weight:300;
+    line-height:1.8;
 }
 
 .email{
-    color:#000;
+    color:#111111;
 }
 
 @media (max-width: 900px){
-
     header{
         flex-direction:column;
         align-items:center;
         gap:20px;
+        padding-top:22px;
     }
 
     nav{
         flex-wrap:wrap;
         justify-content:center;
         gap:16px;
+        padding:0 16px;
     }
 
     main{
+        margin-top:46px;
         padding-left:20px;
         padding-right:20px;
     }
-
-    h1{
-        font-size:34pt;
-    }
-
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-Haiku Field
-</div>
+<div class="logo">Haiku Field</div>
 
 <nav>
 <a href="index.html">Home</a>
@@ -154,20 +137,15 @@ Haiku Field
 <a href="moment.html">MOMENT (Paintings)</a>
 <a href="once.html">ONCE (Paintings)</a>
 </nav>
-
 </header>
 
 <main>
 
 <h1>Haiku Field</h1>
 
-<div class="subtitle">
-Meditative Abstract Works
-</div>
+<div class="subtitle">Meditative Abstract Works</div>
 
-<div class="tagline">
-Where image, form and silence meet
-</div>
+<div class="tagline">Where image, form and silence meet.</div>
 
 <div class="collection">
 <a href="haiga.html">
@@ -206,10 +184,7 @@ Where image, form and silence meet
 
 <div class="contact">
 <div>Contact</div>
-
-<a class="email" href="mailto:haikufield@gmail.com">
-haikufield@gmail.com
-</a>
+<a class="email" href="mailto:haikufield@gmail.com">haikufield@gmail.com</a>
 </div>
 
 </main>
