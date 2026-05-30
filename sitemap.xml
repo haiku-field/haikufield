@@ -1,1 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+<loc>https://haiku-field.github.io/haikufield/</loc>
+</url>
+
+<url>
+<loc>https://haiku-field.github.io/haikufield/haiga.html</loc>
+</url>
+
+<url>
+<loc>https://haiku-field.github.io/haikufield/touch.html</loc>
+</url>
+
+<url>
+<loc>https://haiku-field.github.io/haikufield/echo.html</loc>
+</url>
+
+<url>
+<loc>https://haiku-field.github.io/haikufield/moment.html</loc>
+</url>
+
+<url>
+<loc>https://haiku-field.github.io/haikufield/once.html</loc>
+</url>
+
+</urlset>
