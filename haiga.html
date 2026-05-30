@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>HAIGA | Haiku Field</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,117 +10,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 
 <style>
-body{
-    margin:0;
-    background:#ffffff;
-    color:#111;
-    font-family:'Lato',sans-serif;
-}
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    padding:24px 16px 0 16px;
-}
-
-.logo{
-    font-size:13pt;
-    font-weight:300;
-    color:#666;
-}
-
-nav{
-    display:flex;
-    gap:30px;
-    font-size:13pt;
-    font-weight:300;
-}
-
-nav a{
-    text-decoration:none;
-    color:#666;
-}
-
-main{
-    text-align:center;
-    margin-top:55px;
-}
-
-h1{
-    font-size:34pt;
-    font-weight:300;
-    letter-spacing:8px;
-    margin:0 0 70px 0;
-    color:#1d6f91;
-}
-
-.gallery{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:70px;
-    padding-bottom:100px;
-}
-
-.gallery img{
-    max-width:90vw;
-    max-height:90vh;
-    width:auto;
-    height:auto;
-    display:block;
-    cursor:pointer;
-}
-
-.lightbox{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:#ffffff;
-    z-index:999;
-    justify-content:center;
-    align-items:center;
-}
-
-.lightbox.active{
-    display:flex;
-}
-
-.lightbox img{
-    max-width:96vw;
-    max-height:96vh;
-    width:auto;
-    height:auto;
-}
-
+body{margin:0;background:#fff;color:#111;font-family:'Lato',sans-serif;}
+header{display:flex;justify-content:space-between;align-items:flex-start;padding:24px 16px 0 16px;}
+.logo{font-size:13pt;font-weight:300;color:#666;}
+nav{display:flex;gap:30px;font-size:13pt;font-weight:300;}
+nav a{text-decoration:none;color:#666;}
+main{text-align:center;margin-top:55px;}
+h1{font-size:34pt;font-weight:300;letter-spacing:8px;margin:0 0 70px 0;color:#1d6f91;}
+.gallery{display:flex;flex-direction:column;align-items:center;gap:70px;padding-bottom:100px;}
+.gallery img{max-width:90vw;max-height:90vh;width:auto;height:auto;display:block;cursor:pointer;}
+.lightbox{display:none;position:fixed;inset:0;background:#fff;z-index:999;justify-content:center;align-items:center;}
+.lightbox.active{display:flex;}
+.lightbox img{max-width:96vw;max-height:96vh;width:auto;height:auto;}
 @media (max-width:900px){
-    header{
-        flex-direction:column;
-        align-items:center;
-        gap:20px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:16px;
-        padding:0 15px;
-    }
-
-    h1{
-        font-size:30pt;
-        letter-spacing:6px;
-        margin-bottom:50px;
-    }
-
-    .gallery{
-        gap:50px;
-    }
-
-    .gallery img{
-        max-width:94vw;
-        max-height:88vh;
-    }
+header{flex-direction:column;align-items:center;gap:20px;}
+nav{flex-wrap:wrap;justify-content:center;gap:16px;padding:0 15px;}
+h1{font-size:30pt;letter-spacing:6px;margin-bottom:50px;}
+.gallery{gap:50px;}
+.gallery img{max-width:94vw;max-height:88vh;}
 }
 </style>
 </head>
@@ -130,7 +36,6 @@ h1{
 
 <header>
 <div class="logo">Haiku Field</div>
-
 <nav>
 <a href="index.html">Home</a>
 <a href="haiga.html">HAIGA (Haiku Images)</a>
@@ -142,13 +47,8 @@ h1{
 </header>
 
 <main>
-
 <h1>HAIGA</h1>
-
-<div class="gallery">
-<img src="haiga-haiku-autumn-34x34-j-s-01.jpg" alt="">
-</div>
-
+<div class="gallery" id="gallery"></div>
 </main>
 
 <div class="lightbox" id="lightbox">
@@ -156,20 +56,162 @@ h1{
 </div>
 
 <script>
-const images = document.querySelectorAll('.gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+const files = [
+"haiga-haiku-autumn-34x34-j-s-01.jpg",
+"haiga-haiku-autumn-34x34-j-s-02.jpg",
+"haiga-haiku-autumn-34x34-j-s-03.jpg",
+"haiga-haiku-autumn-34x34-j-s-04.jpg",
+"haiga-haiku-autumn-34x34-j-s-05.jpg",
+"haiga-haiku-autumn-34x34-j-s-06.jpg",
+"haiga-haiku-autumn-34x34-j-s-07.jpg",
+"haiga-haiku-autumn-34x34-j-s-08.jpg",
+"haiga-haiku-autumn-34x34-j-s-09.jpg",
+"haiga-haiku-autumn-34x34-j-s-10.jpg",
+"haiga-haiku-autumn-34x34-j-s-11.jpg",
+"haiga-haiku-autumn-34x34-j-s-12.jpg",
+"haiga-haiku-autumn-34x34-j-s-13.jpg",
+"haiga-haiku-autumn-34x34-j-s-14.jpg",
+"haiga-haiku-autumn-34x34-j-s-15.jpg",
+"haiga-haiku-autumn-34x34-j-s-16.jpg",
+"haiga-haiku-autumn-34x34-j-s-17.jpg",
+"haiga-haiku-autumn-34x34-j-s-18.jpg",
+"haiga-haiku-autumn-34x34-j-s-19.jpg",
+"haiga-haiku-autumn-34x34-j-s-20.jpg",
+"haiga-haiku-autumn-34x34-j-s-21.jpg",
+"haiga-haiku-autumn-34x34-j-s-22.jpg",
+"haiga-haiku-autumn-34x34-j-s-23.jpg",
+"haiga-haiku-autumn-34x34-j-s-24.jpg",
+"haiga-haiku-autumn-34x34-j-s-25.jpg",
+"haiga-haiku-autumn-34x34-j-s-26.jpg",
+"haiga-haiku-autumn-34x34-j-s-27.jpg",
+"haiga-haiku-autumn-34x34-j-s-28.jpg",
+"haiga-haiku-autumn-34x34-j-s-29.jpg",
+"haiga-haiku-autumn-34x34-j-s-30.jpg",
+"haiga-haiku-autumn-34x34-j-s-31.jpg",
+"haiga-haiku-autumn-34x34-j-s-32.jpg",
+"haiga-haiku-autumn-34x34-j-s-33.jpg",
+"haiga-haiku-autumn-34x34-j-s-34.jpg",
+"haiga-haiku-autumn-34x34-j-s-35.jpg",
+"haiga-haiku-autumn-34x34-j-s-36.jpg",
+"haiga-haiku-autumn-34x34-j-s-37.jpg",
+"haiga-haiku-autumn-34x34-j-s-38.jpg",
+"haiga-haiku-autumn-34x34-j-s-39.jpg",
+"haiga-haiku-autumn-34x34-j-s-40.jpg",
+"haiga-haiku-autumn-34x34-j-s-41.jpg",
+"haiga-haiku-autumn-34x34-j-s-42.jpg",
+"haiga-haiku-autumn-34x34-j-s-43.jpg",
+"haiga-haiku-autumn-34x34-j-s-44.jpg",
+"haiga-haiku-autumn-34x34-j-s-45.jpg",
+"haiga-haiku-autumn-34x34-j-s-46.jpg",
+"haiga-haiku-autumn-34x34-j-s-47.jpg",
+"haiga-haiku-autumn-34x34-j-s-48.jpg",
+"haiga-haiku-autumn-34x34-j-s-49.jpg",
+"haiga-haiku-autumn-34x34-j-s-50.jpg",
+"haiga-haiku-autumn-34x34-j-s-51.jpg",
+"haiga-haiku-autumn-34x34-j-s-52.jpg",
+"haiga-haiku-autumn-34x34-j-s-53.jpg",
+"haiga-haiku-autumn-34x34-j-s-54.jpg",
+"haiga-haiku-autumn-34x34-j-s-56.jpg",
+"haiga-haiku-autumn-34x34-j-s-58.jpg",
+"haiga-haiku-autumn-34x34-j-s-59.jpg",
+"haiga-haiku-autumn-34x34-j-s-61.jpg",
+"haiga-haiku-autumn-34x34-j-s-66.jpg",
+"haiga-haiku-autumn-34x34-j-s-68.jpg",
+"haiga-haiku-autumn-34x34-j-s-70.jpg",
+"haiga-haiku-autumn-34x34-j-s-72.jpg",
+"haiga-haiku-autumn-34x34-j-s-74.jpg",
+"haiga-haiku-autumn-34x34-j-s-75.jpg",
+"haiga-haiku-autumn-34x34-j-s-76.jpg",
+"haiga-haiku-autumn-34x45-j-s-78.jpg",
+"haiga-haiku-autumn-34x45-j-s-79.jpg",
+"haiga-haiku-autumn-34x45-j-s-80.jpg",
+"haiga-haiku-autumn-34x45-j-s-84.jpg",
+"haiga-haiku-autumn-34x45-j-s-85.jpg",
+"haiga-haiku-autumn-34x45-j-s-86.jpg",
+"haiga-haiku-autumn-34x45-j-s-87.jpg",
+"haiga-haiku-autumn-34x45-j-s-88.jpg",
+"haiga-haiku-autumn-34x45-j-s-90.jpg",
+"haiga-haiku-autumn-34x45-j-s-91.jpg",
+"haiga-haiku-autumn-34x45-j-s-92.jpg",
+"haiga-haiku-autumn-34x45-j-s-93.jpg",
+"haiga-haiku-autumn-34x45-j-s-95.jpg",
+"haiga-haiku-autumn-34x45-j-s-96.jpg",
+"haiga-haiku-autumn-34x45-j-s-97.jpg",
+"haiga-haiku-autumn-34x45-j-s-98.jpg",
+"haiga-haiku-autumn-34x45-j-s-99.jpg",
+"haiga-haiku-autumn-34x45-j-s-100.jpg",
+"haiga-haiku-autumn-34x45-j-s-101.jpg",
+"haiga-haiku-autumn-34x45-j-s-102.jpg",
+"haiga-haiku-autumn-34x45-j-s-103.jpg",
+"haiga-haiku-autumn-34x45-j-s-105.jpg",
+"haiga-haiku-autumn-34x45-j-s-106.jpg",
+"haiga-haiku-autumn-34x45-j-s-107.jpg",
+"haiga-haiku-autumn-34x45-j-s-108.jpg",
+"haiga-haiku-autumn-34x45-j-s-109.jpg",
+"haiga-haiku-autumn-34x45-j-s-110.jpg",
+"haiga-haiku-autumn-34x45-j-s-111.jpg",
+"haiga-haiku-autumn-34x45-j-s-112.jpg",
+"haiga-haiku-autumn-34x45-j-s-113.jpg",
+"haiga-haiku-autumn-34x45-j-s-115.jpg",
+"haiga-haiku-autumn-34x45-j-s-118.jpg",
+"haiga-haiku-autumn-34x45-j-s-119.jpg",
+"haiga-haiku-autumn-34x45-j-s-122.jpg",
+"haiga-haiku-autumn-34x45-j-s-131.jpg",
+"haiga-haiku-autumn-34x45-j-s-132.jpg",
+"haiga-haiku-autumn-55x55-j-s-55-57.jpg",
+"haiga-haiku-autumn-55x55-j-s-60-62.jpg",
+"haiga-haiku-autumn-55x55-j-s-63-64.jpg",
+"haiga-haiku-autumn-55x55-j-s-65-140.jpg",
+"haiga-haiku-autumn-55x55-j-s-67-120.jpg",
+"haiga-haiku-autumn-55x55-j-s-69-81.jpg",
+"haiga-haiku-autumn-55x55-j-s-71-114.jpg",
+"haiga-haiku-autumn-55x55-j-s-73-77.jpg",
+"haiga-haiku-autumn-55x55-j-s-82.jpg",
+"haiga-haiku-autumn-55x55-j-s-83.jpg",
+"haiga-haiku-autumn-55x55-j-s-89.jpg",
+"haiga-haiku-autumn-55x55-j-s-94.jpg",
+"haiga-haiku-autumn-55x55-j-s-104.jpg",
+"haiga-haiku-autumn-55x55-j-s-116.jpg",
+"haiga-haiku-autumn-55x55-j-s-117.jpg",
+"haiga-haiku-autumn-55x55-j-s-121.jpg",
+"haiga-haiku-autumn-55x55-j-s-123.jpg",
+"haiga-haiku-autumn-55x55-j-s-124.jpg",
+"haiga-haiku-autumn-55x55-j-s-125.jpg",
+"haiga-haiku-autumn-55x55-j-s-126.jpg",
+"haiga-haiku-autumn-55x55-j-s-127.jpg",
+"haiga-haiku-autumn-55x55-j-s-128.jpg",
+"haiga-haiku-autumn-55x55-j-s-129.jpg",
+"haiga-haiku-autumn-55x55-j-s-130.jpg",
+"haiga-haiku-autumn-55x55-j-s-136.jpg",
+"haiga-haiku-autumn-55x55-j-s-137.jpg",
+"haiga-haiku-autumn-55x55-j-s-138.jpg",
+"haiga-haiku-autumn-55x55-j-s-141.jpg",
+"haiga-haiku-autumn-55x55-j-s-145.jpg",
+"haiga-haiku-autumn-55x55-j-s-147.jpg",
+"haiga-haiku-autumn-55x55-j-s-149.jpg",
+"haiga-haiku-autumn-55x55-j-s-153.jpg"
+];
 
-images.forEach(img => {
-    img.addEventListener('click', () => {
-        lightbox.classList.add('active');
+const gallery = document.getElementById("gallery");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+files.forEach(file => {
+    const img = document.createElement("img");
+    img.src = "haiga/" + file;
+    img.alt = "";
+    img.loading = "lazy";
+    gallery.appendChild(img);
+
+    img.addEventListener("click", () => {
+        lightbox.classList.add("active");
         lightboxImg.src = img.src;
     });
 });
 
-lightbox.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-    lightboxImg.src = '';
+lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+    lightboxImg.src = "";
 });
 </script>
 
