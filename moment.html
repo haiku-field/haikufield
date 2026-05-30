@@ -1,1 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>MOMENT | Haiku Field</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;background:#ffffff;color:#111;font-family:'Lato',sans-serif;}
+header{position:sticky;top:0;z-index:1000;background:#1f1f1f;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:16px 18px;}
+.logo{font-size:13pt;font-weight:300;color:#fff;white-space:nowrap;}
+nav{display:flex;gap:30px;font-size:13pt;font-weight:300;}
+nav a{text-decoration:none;color:#fff;white-space:nowrap;}
+nav a:hover{color:#7ec8e3;}
+
+main{text-align:center;margin-top:55px;}
+
+h1{
+font-size:34pt;
+font-weight:300;
+letter-spacing:8px;
+margin:0 0 70px 0;
+color:#1d6f91;
+}
+
+.gallery{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:70px;
+padding-bottom:100px;
+}
+
+.gallery img{
+max-width:90vw;
+max-height:90vh;
+width:auto;
+height:auto;
+display:block;
+cursor:pointer;
+}
+
+.lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:#fff;
+z-index:9999;
+justify-content:center;
+align-items:center;
+}
+
+.lightbox.active{
+display:flex;
+}
+
+.lightbox img{
+max-width:96vw;
+max-height:96vh;
+width:auto;
+height:auto;
+}
+
+@media (max-width:900px){
+
+header{
+flex-direction:column;
+align-items:center;
+gap:14px;
+padding:14px 10px;
+}
+
+nav{
+flex-wrap:wrap;
+justify-content:center;
+gap:14px 18px;
+font-size:12pt;
+}
+
+main{
+margin-top:40px;
+}
+
+h1{
+font-size:30pt;
+letter-spacing:6px;
+margin-bottom:50px;
+}
+
+.gallery{
+gap:50px;
+}
+
+.gallery img{
+max-width:94vw;
+max-height:88vh;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Haiku Field</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="haiga.html">HAIGA (Haiku Images)</a>
+<a href="touch.html">TOUCH (Sculptures)</a>
+<a href="echo.html">ECHO (Sculptures)</a>
+<a href="moment.html">MOMENT (Paintings)</a>
+<a href="once.html">ONCE (Paintings)</a>
+</nav>
+</header>
+
+<main>
+
+<h1>MOMENT</h1>
+
+<div class="gallery" id="gallery"></div>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+<img id="lightbox-img" src="">
+</div>
+
+<script>
+
+const files = [
+
+"moment/moment-34x34-j-s-01.jpg",
+"moment/moment-34x34-j-s-02.jpg",
+"moment/moment-34x34-j-s-03.jpg",
+"moment/moment-34x34-j-s-04.jpg",
+"moment/moment-34x34-j-s-18.jpg",
+"moment/moment-34x34-j-s-19.jpg",
+"moment/moment-34x34-j-s-20.jpg",
+"moment/moment-34x34-j-s-21.jpg",
+"moment/moment-34x34-j-s-22.jpg",
+"moment/moment-34x34-j-s-23.jpg",
+
+"moment/moment-55x55-j-s-01.jpg",
+"moment/moment-55x55-j-s-02.jpg",
+"moment/moment-55x55-j-s-03.jpg",
+"moment/moment-55x55-j-s-04.jpg",
+"moment/moment-55x55-j-s-05.jpg",
+"moment/moment-55x55-j-s-06.jpg",
+"moment/moment-55x55-j-s-07.jpg",
+"moment/moment-55x55-j-s-08.jpg",
+"moment/moment-55x55-j-s-09.jpg",
+"moment/moment-55x55-j-s-10.jpg",
+"moment/moment-55x55-j-s-11.jpg",
+"moment/moment-55x55-j-s-12.jpg",
+"moment/moment-55x55-j-s-13.jpg",
+"moment/moment-55x55-j-s-14.jpg",
+"moment/moment-55x55-j-s-15.jpg",
+"moment/moment-55x55-j-s-16.jpg",
+
+"moment/moment-89x89-j-s-17.jpg",
+
+"moment/moment-55x55-j-s-24.jpg",
+"moment/moment-55x55-j-s-25.jpg",
+"moment/moment-55x55-j-s-26.jpg",
+"moment/moment-55x55-j-s-27.jpg",
+"moment/moment-55x55-j-s-28.jpg",
+"moment/moment-55x55-j-s-29.jpg",
+"moment/moment-55x55-j-s-30.jpg",
+"moment/moment-55x55-j-s-31.jpg",
+"moment/moment-55x55-j-s-32.jpg",
+"moment/moment-55x55-j-s-33.jpg",
+"moment/moment-55x55-j-s-34.jpg",
+"moment/moment-55x55-j-s-35.jpg",
+"moment/moment-55x55-j-s-36.jpg",
+"moment/moment-55x55-j-s-37.jpg",
+"moment/moment-55x55-j-s-38.jpg",
+"moment/moment-55x55-j-s-39.jpg",
+"moment/moment-55x55-j-s-40.jpg",
+"moment/moment-55x55-j-s-41.jpg",
+"moment/moment-55x55-j-s-42.jpg",
+"moment/moment-55x55-j-s-43.jpg",
+"moment/moment-55x55-j-s-44.jpg",
+"moment/moment-55x55-j-s-45.jpg",
+"moment/moment-55x55-j-s-46.jpg",
+"moment/moment-55x55-j-s-47.jpg",
+"moment/moment-55x55-j-s-48.jpg",
+"moment/moment-55x55-j-s-49.jpg",
+"moment/moment-55x55-j-s-50.jpg",
+"moment/moment-55x55-j-s-51.jpg",
+"moment/moment-55x55-j-s-52.jpg",
+"moment/moment-55x55-j-s-53.jpg",
+"moment/moment-55x55-j-s-54.jpg",
+"moment/moment-55x55-j-s-55.jpg",
+"moment/moment-55x55-j-s-56.jpg"
+
+];
+
+const gallery = document.getElementById("gallery");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+files.forEach(file => {
+const img = document.createElement("img");
+img.src = file;
+img.alt = "";
+img.loading = "lazy";
+
+gallery.appendChild(img);
+
+img.addEventListener("click", () => {
+lightbox.classList.add("active");
+lightboxImg.src = img.src;
+});
+});
+
+lightbox.addEventListener("click", () => {
+lightbox.classList.remove("active");
+lightboxImg.src = "";
+});
+
+</script>
+
+</body>
+</html>
