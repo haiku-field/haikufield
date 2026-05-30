@@ -1,1 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>ONCE | Haiku Field</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;background:#ffffff;color:#111;font-family:'Lato',sans-serif;}
+header{position:sticky;top:0;z-index:1000;background:#1f1f1f;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:16px 18px;}
+.logo{font-size:13pt;font-weight:300;color:#fff;white-space:nowrap;}
+nav{display:flex;gap:30px;font-size:13pt;font-weight:300;}
+nav a{text-decoration:none;color:#fff;white-space:nowrap;}
+nav a:hover{color:#7ec8e3;}
+main{text-align:center;margin-top:55px;}
+h1{font-size:34pt;font-weight:300;letter-spacing:8px;margin:0 0 70px 0;color:#1d6f91;}
+.gallery{display:flex;flex-direction:column;align-items:center;gap:70px;padding-bottom:100px;}
+.gallery img{max-width:90vw;max-height:90vh;width:auto;height:auto;display:block;cursor:pointer;}
+.lightbox{display:none;position:fixed;inset:0;background:#fff;z-index:9999;justify-content:center;align-items:center;}
+.lightbox.active{display:flex;}
+.lightbox img{max-width:96vw;max-height:96vh;width:auto;height:auto;}
+@media (max-width:900px){
+header{flex-direction:column;align-items:center;gap:14px;padding:14px 10px;}
+nav{flex-wrap:wrap;justify-content:center;gap:14px 18px;font-size:12pt;}
+main{margin-top:40px;}
+h1{font-size:30pt;letter-spacing:6px;margin-bottom:50px;}
+.gallery{gap:50px;}
+.gallery img{max-width:94vw;max-height:88vh;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Haiku Field</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="haiga.html">HAIGA (Haiku Images)</a>
+<a href="touch.html">TOUCH (Sculptures)</a>
+<a href="echo.html">ECHO (Sculptures)</a>
+<a href="moment.html">MOMENT (Paintings)</a>
+<a href="once.html">ONCE (Paintings)</a>
+</nav>
+</header>
+
+<main>
+<h1>ONCE</h1>
+<div class="gallery" id="gallery"></div>
+</main>
+
+<div class="lightbox" id="lightbox">
+<img id="lightbox-img" src="">
+</div>
+
+<script>
+const files = [
+"once/once-j-s-01.jpg",
+"once/once-j-s-02.jpg",
+"once/once-j-s-03.jpg",
+"once/once-j-s-04.jpg",
+"once/once-j-s-05.jpg",
+"once/once-j-s-06.jpg",
+"once/once-j-s-07.jpg",
+"once/once-j-s-08.jpg",
+"once/once-j-s-09.jpg",
+"once/once-j-s-10.jpg",
+"once/once-j-s-11.jpg",
+"once/once-j-s-12.jpg",
+"once/once-j-s-13.jpg",
+"once/once-j-s-14.jpg",
+"once/once-j-s-15.jpg",
+"once/once-j-s-16.jpg",
+"once/once-j-s-17.jpg",
+"once/once-j-s-18.jpg",
+"once/once-j-s-19.jpg",
+"once/once-j-s-20.jpg",
+"once/once-j-s-21.jpg",
+"once/once-j-s-22.jpg",
+"once/once-j-s-23.jpg",
+"once/once-j-s-24.jpg",
+"once/once-j-s-25.jpg",
+"once/once-j-s-26.jpg",
+"once/once-j-s-27.jpg",
+"once/once-j-s-28.jpg",
+"once/once-j-s-29.jpg",
+"once/once-j-s-30.jpg",
+"once/once-j-s-31.jpg",
+"once/once-j-s-32.jpg",
+"once/once-j-s-33.jpg",
+"once/once-j-s-34.jpg",
+"once/once-j-s-35.jpg",
+"once/once-j-s-36.jpg",
+"once/once-j-s-37.jpg",
+"once/once-j-s-38.jpg",
+"once/once-j-s-39.jpg",
+"once/once-j-s-40.jpg",
+"once/once-j-s-41.jpg",
+"once/once-j-s-42.jpg",
+"once/once-j-s-43.jpg",
+"once/once-j-s-44.jpg",
+"once/once-j-s-45.jpg",
+"once/once-j-s-46.jpg",
+"once/once-j-s-47.jpg",
+"once/once-j-s-48.jpg",
+"once/once-j-s-49.jpg",
+"once/once-j-s-50.jpg",
+"once/once-j-s-51.jpg",
+"once/once-j-s-52.jpg",
+"once/once-j-s-53.jpg",
+"once/once-j-s-54.jpg",
+"once/once-j-s-55.jpg",
+"once/once-j-s-56.jpg",
+"once/once-j-s-57.jpg",
+"once/once-j-s-58.jpg",
+"once/once-j-s-59.jpg",
+"once/once-j-s-60.jpg",
+"once/once-j-s-61.jpg",
+"once/once-j-s-62.jpg",
+"once/once-j-s-63.jpg",
+"once/once-j-s-64.jpg",
+"once/once-j-s-65.jpg",
+"once/once-j-s-66.jpg",
+"once/once-j-s-67.jpg",
+"once/once-j-s-68.jpg",
+"once/once-j-s-69.jpg",
+"once/once-j-s-70.jpg",
+"once/once-j-s-71.jpg",
+"once/once-j-s-72.jpg",
+"once/once-j-s-73.jpg",
+"once/once-j-s-74.jpg",
+"once/once-j-s-75.jpg",
+"once/once-j-s-76.jpg",
+"once/once-j-s-77.jpg",
+"once/once-j-s-78.jpg",
+"once/once-j-s-79.jpg",
+"once/once-j-s-80.jpg",
+"once/once-j-s-81.jpg",
+"once/once-j-s-82.jpg",
+"once/once-j-s-83.jpg",
+"once/once-j-s-84.jpg",
+"once/once-j-s-85.jpg",
+"once/once-j-s-86.jpg",
+"once/once-j-s-87.jpg",
+"once/once-j-s-88.jpg",
+"once/once-j-s-89.jpg",
+"once/once-j-s-90.jpg",
+"once/once-j-s-91.jpg",
+"once/once-j-s-92.jpg",
+"once/once-j-s-93.jpg",
+"once/once-j-s-94.jpg",
+"once/once-j-s-95.jpg",
+"once/once-j-s-96.jpg",
+"once/once-j-s-97.jpg",
+"once/once-j-s-98.jpg",
+"once/once-j-s-99.jpg",
+"once/once-j-s-100.jpg",
+"once/once-j-s-101.jpg",
+"once/once-j-s-102.jpg",
+"once/once-j-s-103.jpg",
+"once/once-j-s-104.jpg",
+"once/once-j-s-105.jpg",
+"once/once-j-s-106.jpg",
+"once/once-j-s-107.jpg",
+"once/once-j-s-108.jpg",
+"once/once-j-s-109.jpg",
+"once/once-j-s-110.jpg",
+"once/once-j-s-111.jpg",
+"once/once-j-s-112.jpg",
+"once/once-j-s-113.jpg",
+"once/once-j-s-114.jpg",
+"once/once-j-s-115.jpg",
+"once/once-j-s-116.jpg",
+"once/once-j-s-117.jpg",
+"once/once-j-s-118.jpg",
+"once/once-j-s-119.jpg",
+"once/once-j-s-120.jpg",
+"once/once-j-s-121.jpg",
+"once/once-j-s-122.jpg",
+"once/once-j-s-123.jpg",
+"once/once-j-s-124.jpg",
+"once/once-j-s-125.jpg",
+"once/once-j-s-126.jpg",
+"once/once-j-s-127.jpg",
+"once/once-j-s-128.jpg",
+"once/once-j-s-129.jpg",
+"once/once-j-s-130.jpg",
+"once/once-j-s-131.jpg",
+"once/once-j-s-132.jpg",
+"once/once-j-s-133.jpg",
+"once/once-j-s-134.jpg",
+"once/once-j-s-135.jpg",
+"once/once-j-s-136.jpg",
+"once/once-j-s-137.jpg",
+"once/once-j-s-138.jpg",
+"once/once-j-s-139.jpg",
+"once/once-j-s-140.jpg",
+"once/once-j-s-141.jpg",
+"once/once-j-s-142.jpg",
+"once/once-j-s-143.jpg",
+"once/once-j-s-144.jpg"
+];
+
+const gallery = document.getElementById("gallery");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+files.forEach(file => {
+const img = document.createElement("img");
+img.src = file;
+img.alt = "";
+img.loading = "lazy";
+gallery.appendChild(img);
+
+img.addEventListener("click", () => {
+lightbox.classList.add("active");
+lightboxImg.src = img.src;
+});
+});
+
+lightbox.addEventListener("click", () => {
+lightbox.classList.remove("active");
+lightboxImg.src = "";
+});
+</script>
+
+</body>
+</html>
